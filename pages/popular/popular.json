@@ -1,0 +1,7 @@
+{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "Popular",
+    "navigationBarTextStyle":"black",
+    "enablePullDownRefresh":"true"
+}

@@ -1,12 +1,36 @@
 {
   "pages":[
-    "pages/index/index",
-    "pages/logs/logs"
+    "pages/popular/popular",
+    "pages/today/today",
+    "pages/detail/detail"
   ],
   "window":{
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle":"black"
+    "navigationBarTitleText": "500px",
+    "navigationBarTextStyle":"black",
+    "enablePullDownRefresh": true
+  },
+  "tabBar": {
+    "color":"#000",
+    "selectedColor":"#f1c40f",
+    "backgroundColor":"#fff",
+    "borderStyle":"white",
+    "list": [{
+      "pagePath": "pages/popular/popular",
+      "text": "Popular",
+      "iconPath":"images/popular-off.png",
+      "selectedIconPath":"images/popular-on.png"
+    }, {
+      "pagePath": "pages/popular/popular",
+      "text": "Popular",
+      "iconPath":"images/popular-off.png",
+      "selectedIconPath":"images/popular-on.png"
+    }, {
+      "pagePath": "pages/today/today",
+      "text": "Today",
+      "iconPath":"images/today-off.png",
+      "selectedIconPath":"images/today-on.png"
+    }]
   }
 }

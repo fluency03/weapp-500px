@@ -1,0 +1,7 @@
+{
+  "backgroundTextStyle":"light",
+  "navigationBarBackgroundColor": "#fff",
+  "navigationBarTitleText": "Photo",
+  "navigationBarTextStyle":"black",
+  "enablePullDownRefresh":"true"
+}

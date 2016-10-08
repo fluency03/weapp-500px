@@ -1,0 +1,34 @@
+<!--detail.wxml-->
+<view class="container">
+    <view class="topic-detail">
+        <view class="topic-owner">
+            <image class="owner-avatar" src="{{photo.user.userpic_url}}" id="{{photo.user.id}}" bindtap="showUserInfo"></image>
+            <view class="topic-tit">{{photo.user.fullname}}</view>
+        </view>
+        <view class="topic-info">
+            <text>{{photo.user.username}}</text>
+            <text class="topic-created">{{photo.created_at}}</text>
+        </view>
+        <image style="width: 750rpx; height: {{height}}rpx; background-color: #ffffff;" src="{{photo.images[0].url}}" mode="aspectFit"></image>
+        <view class="topic-desc">
+            <text>Description: {{photo.description}}</text>
+        </view>
+    </view>
+    <view class="replies">
+        <block wx:for="{{comments}}">
+            <view class="replies-item" id="{{item.id}}">
+                <view class="reply-owner">
+                    <image class="reply-avatar" src="{{item.user.userpic_url}}"></image>
+                    <text class="reply-name">{{item.user.username}}</text>
+                    <text class="reply-time">{{item.created_at}}</text>
+                </view>
+                <view class="reply-content">
+                    {{item.body}}
+                </view>
+            </view>
+        </block>
+    </view>
+    <loading hidden="{{hidden}}">
+        Loading...
+    </loading>
+</view>
