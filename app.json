@@ -1,8 +1,10 @@
 {
   "pages":[
-    "pages/popular/popular",
-    "pages/today/today",
-    "pages/detail/detail"
+    "pages/explore/explore",
+    "pages/search/search",
+    "pages/detail/detail",
+    "pages/profile/profile",
+    "pages/user/user"
   ],
   "window":{
     "backgroundTextStyle":"light",
@@ -13,24 +15,24 @@
   },
   "tabBar": {
     "color":"#000",
-    "selectedColor":"#f1c40f",
+    "selectedColor":"#2980b9",
     "backgroundColor":"#fff",
     "borderStyle":"white",
     "list": [{
-      "pagePath": "pages/popular/popular",
-      "text": "Popular",
-      "iconPath":"images/popular-off.png",
-      "selectedIconPath":"images/popular-on.png"
+      "pagePath": "pages/explore/explore",
+      "text": "Explore",
+      "iconPath":"images/editor-off.png",
+      "selectedIconPath":"images/editor-on.png"
     }, {
-      "pagePath": "pages/popular/popular",
-      "text": "Popular",
-      "iconPath":"images/popular-off.png",
-      "selectedIconPath":"images/popular-on.png"
+      "pagePath": "pages/search/search",
+      "text": "Search",
+      "iconPath":"images/search-off.png",
+      "selectedIconPath":"images/search-on.png"
     }, {
-      "pagePath": "pages/today/today",
-      "text": "Today",
-      "iconPath":"images/today-off.png",
-      "selectedIconPath":"images/today-on.png"
+      "pagePath": "pages/profile/profile",
+      "text": "Profile",
+      "iconPath":"images/profile-off.png",
+      "selectedIconPath":"images/profile-on.png"
     }]
   }
 }

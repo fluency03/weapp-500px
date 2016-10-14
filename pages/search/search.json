@@ -1,0 +1,7 @@
+{
+  "backgroundTextStyle":"light",
+  "navigationBarBackgroundColor": "#fff",
+  "navigationBarTitleText": "Search",
+  "navigationBarTextStyle":"black",
+  "enablePullDownRefresh":"true"
+}

@@ -1,0 +1,37 @@
+<!--explore.wxml-->
+<loading hidden="{{!loading}}">
+    Loading
+</loading>
+
+<action-sheet hidden="{{actionSheetHidden}}" bindchange="actionSheetChange">
+    <block wx:for="{{actionSheetItems}}">
+        <action-sheet-item class="item" bindtap="bindItemTap" data-name="{{item}}">{{item}}</action-sheet-item>
+    </block>
+    <action-sheet-cancel class="cancel">Cancel</action-sheet-cancel>
+</action-sheet>
+
+<view class="container">
+    <scroll-view class='section editor' style="height: 750px;" scroll-y="true" bindscrolltolower="loadMore" bindscrolltoupper="actionSheetTap">
+        <view class="big-photo-list">
+            <view class="big-photo-item"  wx:for="{{editor}}">
+                <view class="photo-item" index="{{index}}" id="{{item.id}}" catchtap="look">
+                    <image class="photo" src="{{item.images[0].url}}"></image>
+                </view>
+            </view>
+        </view>
+
+        <view class="load-more-wrap">
+            <block wx:if="{{hasMore}}">
+                <view class="load-content">
+                    <text class="weui-loading"/><text class="loading-text">Loading...</text>
+                </view>
+            </block>
+
+            <block wx:else>
+                <view class="load-content">
+                    <text>No more...</text>
+                </view>
+            </block>
+        </view>
+    </scroll-view>
+</view>

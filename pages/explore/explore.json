@@ -1,7 +1,7 @@
 {
-    "backgroundTextStyle":"light",
+    "backgroundTextStyle":"light"
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "Popular",
+    "navigationBarTitleText": "Editors",
     "navigationBarTextStyle":"black",
     "enablePullDownRefresh":"true"
 }

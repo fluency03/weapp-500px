@@ -1,0 +1,44 @@
+<!--detail.wxml-->
+<view class="container">
+    <view class="topic-detail">
+        <view class="topic-owner">
+            <image class="owner-avatar" src="{{user.userpic_url}}"></image>
+            <view class="topic-tit">{{user.username}}</view>
+        </view>
+        <view class="topic-desc">
+            <text>City: {{user.city}}</text>
+        </view>
+        <view wx:for="{{contacts}}">
+            <text class="reply-content">{{item[0]}}: {{item[1]}}</text>
+        </view>
+        <view class="topic-desc">
+            <text>{{user.about}}</text>
+        </view>
+    </view>
+    <scroll-view class='section editor' style="height: 750px;" scroll-y="true" bindscrolltolower="loadMore">
+        <view class="big-photo-list">
+            <view class="big-photo-item"  wx:for="{{galleries}}">
+                <view class="photo-item" index="{{index}}" id="{{item.id}}" catchtap="look">
+                    <image class="photo" src="{{item.images[0].url}}"></image>
+                </view>
+            </view>
+        </view>
+
+        <view class="load-more-wrap">
+            <block wx:if="{{hasMore}}">
+                <view class="load-content">
+                    <text class="weui-loading"/><text class="loading-text">Loading...</text>
+                </view>
+            </block>
+
+            <block wx:else>
+                <view class="load-content">
+                    <text>No more...</text>
+                </view>
+            </block>
+        </view>
+    </scroll-view>
+    <loading hidden="{{hidden}}">
+        Loading...
+    </loading>
+</view>

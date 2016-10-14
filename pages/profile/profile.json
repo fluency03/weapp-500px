@@ -1,0 +1,7 @@
+{
+  "backgroundTextStyle":"light",
+  "navigationBarBackgroundColor": "#fff",
+  "navigationBarTitleText": "Profile",
+  "navigationBarTextStyle":"black",
+  "enablePullDownRefresh":"true"
+}

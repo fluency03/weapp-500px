@@ -16,6 +16,30 @@ function formatNumber(n) {
   return n[1] ? n : '0' + n
 }
 
-module.exports = {
-  formatTime: formatTime
+
+function pickKvFromArray(array, keys) {
+  if (!array instanceof Array || !keys instanceof Array) {
+    return {}
+  }
+
+  return array.map(item => {
+      var pickData = {};
+
+  keys.forEach(key => {
+    var value = item[key];
+
+  if (value) {
+    pickData[key] = value;
+  }
+
+})
+
+  return pickData;
+})
 }
+
+module.exports = {
+  formatTime: formatTime,
+  pickKvFromArray: pickKvFromArray
+}
+

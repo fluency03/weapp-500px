@@ -9,9 +9,9 @@
 }
 
 .owner-avatar {
-  width: 128rpx;
-  height: 128rpx;
-  margin-right: 30rpx;
+  width: 100rpx;
+  height: 100rpx;
+  margin-right: 20rpx;
   border-radius: 100%;
 }
 
@@ -36,6 +36,8 @@
 }
 
 .topic-desc {
+  padding-left: 20rpx;
+  padding-right: 20rpx;
   margin-bottom: 20rpx;
   line-height: 1.4;
   word-wrap: break-word;
@@ -45,7 +47,7 @@
 }
 
 .replies {
-  margin-top:30rpx;
+  //margin-top:30rpx;
   border-top:1px solid #ddd;
 }
 
@@ -57,12 +59,12 @@
 .reply-owner {
   display: flex;
   align-items: center;
-  margin-bottom: 40rpx;
+  margin-bottom: 10rpx;
 }
 
 .reply-avatar {
-  width:100rpx;
-  height:100rpx;
+  width:60rpx;
+  height:60rpx;
   border-radius:100%;
   margin-right:30rpx;
 }
@@ -78,16 +80,10 @@
 }
 
 .reply-content {
-  padding:0 20rpx;
+  padding-left: 20rpx;
+  padding-right: 20rpx;
   line-height:1.4;
   word-wrap: break-word;
   word-break: normal;
   color:#999;
 }
-
-//.photo{
-//  //width:750rpx;
-//  //height:373rpx;
-//  //border-radius: 5rpx;
-//  background: #ffffff;
-//}
