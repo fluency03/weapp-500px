@@ -7,7 +7,7 @@ var CACHED_TIME = WARP_SECOND * 2; // sec
 
 Page({
   data: {
-    title: 'Editor',
+    title: 'Explore',
     editor: [],
     feature: 'editors',
     loading: true,
@@ -16,6 +16,7 @@ Page({
     actionSheetHidden: true,
     actionSheetItems: ['Editor', 'Today', 'Week', 'Upcoming'],
     sheetMap: {'Editor': 'editors', 'Today': 'fresh_today', 'Week': 'fresh_week', 'Upcoming': 'upcoming'}
+    // modalHidden: true
   },
   look: function(event) {
     var id = event.currentTarget.id,

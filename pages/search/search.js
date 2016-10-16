@@ -23,13 +23,13 @@ Page({
       url: url
     })
   },
-  inputChange1: function(e) {
+  changeTerm: function(e) {
     this.setData({
       term: e.detail.value,
       rpp: 20
     });
   },
-  inputChange2: function(e) {
+  changTag: function(e) {
     this.setData({
       tag: e.detail.value,
       rpp: 20

@@ -6,8 +6,8 @@
 <view class="container">
 <scroll-view class='section editor' style="height: 750px;" scroll-y="true" bindscrolltolower="loadMore">
     <view class="search">
-        <input class="searchinput" placeholder="Term" bindchange="inputChange1" type="text" auto-focus="true"/>
-        <input class="searchinput" placeholder="Tag" bindchange="inputChange2" type="text" auto-focus="true"/>
+        <input class="searchinput" placeholder="Term" bindchange="changeTerm" type="text" auto-focus="true"/>
+        <input class="searchinput" placeholder="Tag" bindchange="changeTag" type="text" auto-focus="true"/>
         <button class="searchbutton" bindtap="search">Search</button>
     </view>
     <view class="big-photo-list">
