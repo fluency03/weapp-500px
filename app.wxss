@@ -18,6 +18,7 @@
 .owner-avatar {
   width: 100rpx;
   height: 100rpx;
+  left: 10rpx;
   margin-right: 20rpx;
   border-radius: 100%;
 }
@@ -43,6 +44,7 @@
 }
 
 .topic-desc {
+  width: 700rpx;
   padding-left: 20rpx;
   padding-right: 20rpx;
   margin-bottom: 20rpx;
@@ -53,13 +55,25 @@
   color:#333;
 }
 
+.topic-tags {
+  width: 700rpx;
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+  margin-bottom: 20rpx;
+  line-height: 1.4;
+  word-wrap: break-word;
+  word-break: normal;
+  font-size:14px;
+  color:#999;
+}
+
 .replies {
-  //margin-top:30rpx;
+  width: 750rpx;
   border-top:1px solid #ddd;
 }
 
 .replies-item {
-  padding:40rpx 0;
+  padding:10rpx 0 10rpx 20rpx;
   border-bottom:1px solid #eee;
 }
 

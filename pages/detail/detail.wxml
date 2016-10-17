@@ -9,8 +9,10 @@
         <view class="topic-desc">
             <text>{{photo.description}}</text>
         </view>
-        <view wx:for="{{tags}}">
-            <text class="reply-content">#{{item}}</text>
+        <view class="topic-tags">
+            <block wx:for="{{tags}}">
+                #{{item}}
+            </block>
         </view>
         <!--<block wx:for="{{pages}}">-->
             <!--<text>{{item[0]}} ({{item[1]}})</text>-->
