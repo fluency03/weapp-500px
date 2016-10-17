@@ -9,8 +9,8 @@ Page({
   data: {
     title: 'Editor',
     editor: [],
-    term: 'fish',
-    tag: 'street',
+    term: '',
+    tag: '',
     loading: true,
     hasMore: true,
     rpp: 20,

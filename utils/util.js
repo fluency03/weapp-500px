@@ -1,10 +1,10 @@
 function formatTime(date) {
-  var year = date.getFullYear()
-  var month = date.getMonth() + 1
-  var day = date.getDate()
+  var year = date.getFullYear();
+  var month = date.getMonth() + 1;
+  var day = date.getDate();
 
-  var hour = date.getHours()
-  var minute = date.getMinutes()
+  var hour = date.getHours();
+  var minute = date.getMinutes();
   var second = date.getSeconds();
 
 
@@ -12,34 +12,11 @@ function formatTime(date) {
 }
 
 function formatNumber(n) {
-  n = n.toString()
+  n = n.toString();
   return n[1] ? n : '0' + n
 }
 
-
-function pickKvFromArray(array, keys) {
-  if (!array instanceof Array || !keys instanceof Array) {
-    return {}
-  }
-
-  return array.map(item => {
-      var pickData = {};
-
-  keys.forEach(key => {
-    var value = item[key];
-
-  if (value) {
-    pickData[key] = value;
-  }
-
-})
-
-  return pickData;
-})
-}
-
 module.exports = {
-  formatTime: formatTime,
-  pickKvFromArray: pickKvFromArray
-}
+  formatTime: formatTime
+};
 
