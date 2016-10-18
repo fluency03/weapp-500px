@@ -1,14 +1,15 @@
 // today.js
 
-var utils = require('../../utils/util.js');
+var util = require('../../utils/util.js');
+var Api = require('../../utils/api.js');
 
 var WARP_SECOND = 1000 * 60;
 var CACHED_TIME = WARP_SECOND * 2; // sec
 
 Page({
   data: {
-    title: 'Editor',
-    editor: [],
+    title: 'Search',
+    photos: [],
     term: '',
     tag: '',
     loading: true,
@@ -42,20 +43,20 @@ Page({
     this.initData(this.data.term)
   },
   initData: function(t){
-    var photosEditor = wx.getStorageSync(t);
+    var cachedPhotos = wx.getStorageSync(t);
 
-    if (!photosEditor) {
+    if (!cachedPhotos) {
       this.fetchData();
     } else {
       var nowTs = Date.now();
-      var oldTs = parseInt(wx.getStorageSync('requestEditorTs') || 0);
+      var oldTs = parseInt(wx.getStorageSync('requestTs') || 0);
 
       if (nowTs - oldTs > CACHED_TIME || !oldTs) {
         this.fetchData();
       } else {
         this.setData({
           loading: false,
-          editor: photosEditor
+          photos: cachedPhotos
         })
       }
     }
@@ -75,15 +76,14 @@ Page({
       more = false;
     }
 
-    var CKEY = 'pd67OURWTmXMy6X1E3DL5jmr9aBAZ9VLjZp4jLvz';
     var theRPP = that.data.rpp;
     console.log (theRPP);
     wx.request({
-      url: 'https://api.500px.com/v1/photos/search',
+      url: Api.getSearch(),
       data: {
         term: this.data.term,
         tag: this.data.tag,
-        consumer_key: CKEY,
+        consumer_key: Api.getConsumerKey(),
         image_size: '3',
         rpp: theRPP
       },
@@ -93,7 +93,7 @@ Page({
 
         if (more) {
           console.log('a');
-          var newData = that.data.editor;
+          var newData = that.data.photos;
           // var concatData = fetchedData;
           newData.push.apply(newData, fetchedData.slice(theRPP - 20, theRPP));
         } else {
@@ -101,11 +101,11 @@ Page({
           var newData = fetchedData;
         }
 
-        wx.setStorageSync('editor', newData);
-        wx.setStorageSync('requestEditorTs', Date.now());
+        wx.setStorageSync(that.data.term, newData);
+        wx.setStorageSync('requestTs', Date.now());
 
         that.setData({
-          editor: newData,
+          photos: newData,
           loading: false,
           rpp: that.data.rpp + 20
         })

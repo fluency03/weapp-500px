@@ -11,7 +11,7 @@
         <button class="searchbutton" bindtap="search">Search</button>
     </view>
     <view class="big-photo-list">
-        <view class="big-photo-item"  wx:for="{{editor}}">
+        <view class="big-photo-item"  wx:for="{{photos}}">
             <view class="photo-item" index="{{index}}" id="{{item.id}}" catchtap="look">
                 <image class="photo" src="{{item.images[0].url}}"></image>
             </view>

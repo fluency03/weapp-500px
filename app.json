@@ -2,8 +2,8 @@
   "pages":[
     "pages/explore/explore",
     "pages/search/search",
-    "pages/detail/detail",
     "pages/profile/profile",
+    "pages/detail/detail",
     "pages/user/user"
   ],
   "window":{

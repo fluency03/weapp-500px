@@ -12,12 +12,12 @@
 .topic-owner {
   display: flex;
   align-items: center;
-  margin-bottom: 30rpx;
+  margin-bottom: 10rpx;
 }
 
 .owner-avatar {
-  width: 100rpx;
-  height: 100rpx;
+  width: 80rpx;
+  height: 80rpx;
   left: 10rpx;
   margin-right: 20rpx;
   border-radius: 100%;

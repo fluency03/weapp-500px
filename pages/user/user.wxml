@@ -15,9 +15,9 @@
             <text>{{user.about}}</text>
         </view>
     </view>
-    <scroll-view class='section editor' style="height: 750px;" scroll-y="true" bindscrolltolower="loadMore">
+    <scroll-view class='section photos' style="height: 750px;" scroll-y="true" bindscrolltolower="loadMore">
         <view class="big-photo-list">
-            <view class="big-photo-item"  wx:for="{{galleries}}">
+            <view class="big-photo-item"  wx:for="{{photos}}">
                 <view class="photo-item" index="{{index}}" id="{{item.id}}" catchtap="look">
                     <image class="photo" src="{{item.images[0].url}}"></image>
                 </view>

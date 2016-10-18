@@ -2,7 +2,6 @@
 
 var Api = require('../../utils/api.js');
 
-
 var WARP_SECOND = 1000 * 60;
 var CACHED_TIME = WARP_SECOND * 2; // sec
 
@@ -98,14 +97,13 @@ Page({
         if (more) {
           console.log('a');
           var newData = that.data.photos;
-          // var concatData = fetchedData;
           newData.push.apply(newData, fetchedData.slice(theRPP - 20, theRPP));
         } else {
           console.log('b');
           var newData = fetchedData;
         }
 
-        wx.setStorageSync('photos', newData);
+        wx.setStorageSync(that.data.feature, newData);
         wx.setStorageSync('requestTs', Date.now());
 
         that.setData({
