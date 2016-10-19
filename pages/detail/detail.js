@@ -13,7 +13,7 @@ Page({
     height: 0,
     pages: [],
     loading: true,
-    modalHidden2: true,
+    hideInfo: true,
     hideCamera: true,
     hideLens: true,
     hideAperture: true,
@@ -22,14 +22,14 @@ Page({
     hideVote: true,
     hideView: true
   },
-  modalTap2: function(e) {
+  showPhotoInfo: function(e) {
     this.setData({
-      modalHidden2: false
+      hideInfo: false
     })
   },
-  modalChange2: function(e) {
+  closeInfo: function(e) {
     this.setData({
-      modalHidden2: true
+      hideInfo: true
     })
   },
   loadUser: function(event) {
@@ -72,12 +72,10 @@ Page({
   },
   fetchReplies: function(id) {
     var that = this;
-    var commentsurl = 'https://api.500px.com/v1/photos' + '/' + id + '/comments';
-    var CKEY = 'pd67OURWTmXMy6X1E3DL5jmr9aBAZ9VLjZp4jLvz';
     wx.request({
-      url: commentsurl,
+      url: Api.getComments(id),
       data: {
-        consumer_key: CKEY
+        consumer_key: Api.getConsumerKey()
       },
       success: function(res) {
         that.setData({
@@ -88,6 +86,7 @@ Page({
     })
   },
   onLoad: function(options) {
+    console.log('load photo detail');
     this.fetchDetail(options.id);
   }
 })

@@ -6,7 +6,7 @@ var SEARCH = '/search';
 var USERS = '/users';
 var SHOW_ID = '/show?id=';
 var GALLERIES = '/galleries';
-
+var COMMENTS = '/comments';
 
 var CKEY = 'pd67OURWTmXMy6X1E3DL5jmr9aBAZ9VLjZp4jLvz';
 
@@ -37,6 +37,10 @@ function _getUser(){
   return HOST_URI + USERS + SEARCH;
 }
 
+function _getComments(id){
+  return _getPhoto(id) + COMMENTS;
+}
+
 function _isNone(s){
   return s == '' || s == null || s == undefined;
 }
@@ -49,5 +53,6 @@ module.exports = {
   getSearch: _getSearch,
   showUser: _showUser,
   getUser: _getUser,
-  isNone: _isNone
+  isNone: _isNone,
+  getComments: _getComments
 };
