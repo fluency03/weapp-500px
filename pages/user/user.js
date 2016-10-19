@@ -13,6 +13,7 @@ Page({
     contacts: [],
     loading: true,
     hasMore: true,
+    equalOne: false,
     id: '',
     rpp: 20,
     hideCamera: true,
@@ -28,12 +29,9 @@ Page({
   },
   loadMore: function(e) {
     console.log('down');
-    var hasMore = false;
-    this.fetchGallery(this.data.id, true);
-    hasMore = true;
-    this.setData({
-      hasMore: hasMore
-    })
+    if (this.data.hasMore) {
+      this.fetchData(this.data.id);
+    }
   },
   fetchUser: function(id) {
     var that = this;
@@ -59,7 +57,7 @@ Page({
           hideCity: Api.isNone(user.city),
           contacts: arrayC
         });
-        that.fetchGallery(id);
+        that.fetchData(id);
       }
     });
   },
@@ -68,7 +66,7 @@ Page({
 
     if (!cachedPhotos) {
       console.log('y');
-      this.fetchGallery(id, false);
+      this.fetchData(id);
     } else {
       console.log('n');
       var nowTs = Date.now();
@@ -76,7 +74,7 @@ Page({
 
       if (nowTs - oldTs > CACHED_TIME || !oldTs) {
         console.log('n1');
-        this.fetchGallery(id, false);
+        this.fetchData(id);
       } else {
         console.log('n2');
         this.setData({
@@ -86,12 +84,8 @@ Page({
       }
     }
   },
-  fetchGallery: function(id, more) {
-    console.log('fetchGallery');
+  fetchData: function(id) {
     var that = this;
-    if (!more) {
-      more = false;
-    }
 
     var theRPP = that.data.rpp;
     console.log(id);
@@ -111,22 +105,31 @@ Page({
       success: function(res) {
         var fetchedData = res.data.photos;
 
-        if (more) {
-          console.log('a');
-          var newData = that.data.photos;
-          newData.push.apply(newData, fetchedData.slice(theRPP - 20, theRPP));
-        } else {
-          console.log('b');
-          var newData = fetchedData;
-        }
+        var newData = that.data.photos;
+        newData.push.apply(newData, fetchedData.slice(theRPP - 20, theRPP));
 
         wx.setStorageSync('userphotos', newData);
         wx.setStorageSync('requestUserTs', Date.now());
 
+        var hasMore = true;
+        var newRPP = theRPP + 20;
+        var equalOne = false;
+        if (fetchedData.length < theRPP) {
+          hasMore = false;
+          newRPP = fetchedData.length;
+        } else if (that.equalOne) {
+          hasMore = false;
+          newRPP = fetchedData.length;
+        } else {
+          equalOne = true;
+        }
+
         that.setData({
           photos: newData,
           loading: false,
-          rpp: that.data.rpp + 20
+          hasMore: hasMore,
+          equalOne: equalOne,
+          rpp: newRPP
         })
       }
     });
