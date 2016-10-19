@@ -1,0 +1,7 @@
+{
+  "backgroundTextStyle":"light",
+  "navigationBarBackgroundColor": "#fff",
+  "navigationBarTitleText": "User",
+  "navigationBarTextStyle":"black",
+  "enablePullDownRefresh":"true"
+}
