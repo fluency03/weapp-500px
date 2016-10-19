@@ -65,18 +65,14 @@ Page({
     var cachedPhotos = wx.getStorageSync('userphotos');
 
     if (!cachedPhotos) {
-      console.log('y');
       this.fetchData(id);
     } else {
-      console.log('n');
       var nowTs = Date.now();
       var oldTs = parseInt(wx.getStorageSync('requestUserTs') || 0);
 
       if (nowTs - oldTs > CACHED_TIME || !oldTs) {
-        console.log('n1');
         this.fetchData(id);
       } else {
-        console.log('n2');
         this.setData({
           loading: false,
           photos: cachedPhotos
@@ -89,6 +85,7 @@ Page({
 
     var theRPP = that.data.rpp;
     console.log(id);
+    console.log(theRPP);
     wx.request({
       url: Api.getPhotos(),
       data: {
@@ -135,6 +132,7 @@ Page({
     });
   },
   onLoad: function(options) {
+    console.log('load user');
     this.fetchUser(options.id);
   }
 })

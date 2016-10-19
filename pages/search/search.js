@@ -11,9 +11,9 @@ Page({
     title: 'Search',
     photos: [],
     term: '',
-    tag: '',
     loading: true,
     hasMore: true,
+    equalOne: false,
     rpp: 20
   },
   lookPhoto: function(e) {
@@ -56,26 +56,19 @@ Page({
   },
   loadMore: function(e) {
     console.log('down');
-    var hasMore = false;
-    this.fetchData(true);
-    hasMore = true;
-    this.setData({
-      hasMore: hasMore
-    })
-  },
-  fetchData: function(more) {
-    var that = this;
-    if (!more) {
-      more = false;
+    if (this.data.hasMore) {
+      this.fetchData();
     }
+  },
+  fetchData: function() {
+    var that = this;
 
     var theRPP = that.data.rpp;
-    console.log (theRPP);
+    console.log(theRPP);
     wx.request({
       url: Api.getSearch(),
       data: {
         term: this.data.term,
-        // tag: this.data.tag,
         consumer_key: Api.getConsumerKey(),
         image_size: '3',
         rpp: theRPP
@@ -84,28 +77,37 @@ Page({
         console.log(res);
         var fetchedData = res.data.photos;
 
-        if (more) {
-          console.log('a');
-          var newData = that.data.photos;
-          // var concatData = fetchedData;
-          newData.push.apply(newData, fetchedData.slice(theRPP - 20, theRPP));
-        } else {
-          console.log('b');
-          var newData = fetchedData;
-        }
+        var newData = that.data.photos;
+        newData.push.apply(newData, fetchedData.slice(theRPP - 20, theRPP));
 
         wx.setStorageSync(that.data.term, newData);
         wx.setStorageSync('requestTs', Date.now());
 
+        var hasMore = true;
+        var newRPP = theRPP + 20;
+        var equalOne = false;
+        if (fetchedData.length < theRPP) {
+          hasMore = false;
+          newRPP = fetchedData.length;
+        } else if (that.equalOne) {
+          hasMore = false;
+          newRPP = fetchedData.length;
+        } else {
+          equalOne = true;
+        }
+
         that.setData({
           photos: newData,
           loading: false,
-          rpp: that.data.rpp + 20
+          hasMore: hasMore,
+          equalOne: equalOne,
+          rpp: newRPP
         })
       }
     })
   },
   onLoad: function () {
+    console.log('load search');
     this.initData(this.data.term);
   }
 })
