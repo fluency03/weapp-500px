@@ -10,9 +10,6 @@ var COMMENTS = '/comments';
 
 var CKEY = 'pd67OURWTmXMy6X1E3DL5jmr9aBAZ9VLjZp4jLvz';
 
-// var NONES = ['', null, undefined];
-
-
 function _getPhotos(){
   return HOST_URI + PHOTOS;
 }
