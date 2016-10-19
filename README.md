@@ -19,7 +19,7 @@
 
 感谢 [500px API](https://github.com/500px/api-documentation). 感谢 [Icons8](https://icons8.com/), 本应用图标均取材于 Icons8. 
 
-感谢 github 上其它微信小程序(如: [wechat-v2ex](https://github.com/jectychen/wechat-v2ex))和网上各种教程.
+感谢 github 上其它微信小程序([wechat-v2ex](https://github.com/jectychen/wechat-v2ex) and [weapp-github](https://github.com/zhengxiaowai/weapp-github))和网上各种教程.
 
 ## License
 
