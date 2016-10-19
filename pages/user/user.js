@@ -8,15 +8,16 @@ Page({
   data: {
     title: 'User',
     user: {},
-    contacts: [],
-    cameras: [],
-    lens: [],
     photos: [],
+    contacts: [],
     hidden: false,
     loading: true,
     hasMore: true,
     id: '',
-    rpp: 20
+    rpp: 20,
+    hideCamera: true,
+    hideLens: true,
+    hideCity: true
   },
   look: function(event) {
     var id = event.currentTarget.id,
@@ -43,14 +44,19 @@ Page({
         consumer_key: Api.getConsumerKey()
       },
       success: function(res) {
-        var objC = res.data.user.contacts;
+        var user = res.data.user;
+        var objC = user.contacts;
         var arrayC = [];
         for (var key in objC){
           arrayC.push([key, objC[key]]);
         }
+
         that.setData({
           id: id,
-          user: res.data.user,
+          user: user,
+          hideCamera: Api.isNone(user.camera),
+          hideLens: Api.isNone(user.lens),
+          hideCity: Api.isNone(user.city),
           contacts: arrayC
         });
         that.fetchGallery(id);
@@ -61,7 +67,6 @@ Page({
         }, 300)
       }
     });
-    // that.fetchGallery(id, more)
   },
   initData: function(id){
     var cachedPhotos = wx.getStorageSync('userphotos');

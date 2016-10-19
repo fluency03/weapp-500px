@@ -13,7 +13,14 @@ Page({
     height: 0,
     pages: [],
     hidden: false,
-    modalHidden2: true
+    modalHidden2: true,
+    hideCamera: true,
+    hideLens: true,
+    hideAperture: true,
+    hideISO: true,
+    hideRate: true,
+    hideVote: true,
+    hideView: true
   },
   modalTap2: function(e) {
     this.setData({
@@ -44,12 +51,20 @@ Page({
         consumer_key: Api.getConsumerKey()
       },
       success: function(res) {
+        var photo = res.data.photo;
         // var pages = getXML(res.data.photo.description);
         that.setData({
-          photo: res.data.photo,
-          height: res.data.photo.height * 750 / res.data.photo.width,
-          pages: util.getXML(res.data.photo.description),
-          tags: res.data.photo.tags
+          photo: photo,
+          height: photo.height * 750 / photo.width,
+          pages: util.getXML(photo.description),
+          hideCamera: Api.isNone(photo.camera),
+          hideLens: Api.isNone(photo.lens),
+          hideAperture: Api.isNone(photo.aperture),
+          hideISO: Api.isNone(photo.iso),
+          hideRate: Api.isNone(photo.rating),
+          hideVote: Api.isNone(photo.votes_count),
+          hideView: Api.isNone(photo.times_viewed),
+          tags: photo.tags
         });
       }
     });

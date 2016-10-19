@@ -19,12 +19,3 @@
   border:1rpx solid lightgray;
   border-radius: 4rpx;
 }
-
-.searchbutton{
-  width:140rpx;
-  height: 60rpx;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 28rpx;
-}

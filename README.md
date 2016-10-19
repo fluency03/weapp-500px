@@ -1,6 +1,6 @@
 # weapp-500px
 
-## 说明
+## Info
 
 微信小程序： [官方文档](https://mp.weixin.qq.com/debug/wxadoc/dev/), [IDE下载](https://mp.weixin.qq.com/debug/wxadoc/dev/devtools/devtools.html?t=1476434677599), [API](https://mp.weixin.qq.com/debug/wxadoc/dev/api/?t=1476197490095)
 
@@ -10,6 +10,9 @@
 
 如需转载, 注明出处. 不胜感谢.
 
+## Demo
+
+<img src="images/500px.gif" width="480">
 
 
 ## Acknowledgement

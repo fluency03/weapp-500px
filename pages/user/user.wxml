@@ -3,28 +3,22 @@
     <view class="topic-detail">
         <view class="topic-owner">
             <image class="owner-avatar" src="{{user.userpic_url}}"></image>
-            <view class="topic-tit">{{user.username}}</view>
+            <view class="topic-tit">{{user.fullname}} ({{user.username}})</view>
         </view>
         <view class="reply-content">
-            <block wx:if="{{user.city != '' && user.city != null}}">
-                <view> <text>City: {{user.city}}</text> </view>
-            </block>
-	        <block wx:if="{{user.equipment.camera.length != 0}}">
-                <view> 
-                    <text>Cameras: </text>
-                    <block wx:for="{{user.equipment.camera}}">
-                        <text>{{item}}</text>
-                    </block>
-                </view>
-            </block>
-	        <block wx:if="{{user.equipment.lens.length != 0}}">
-                <view> 
-                    <text>Lens: </text>
-                    <block wx:for="{{user.equipment.lens}}">
-                        <text> {{item}}</text>
-                    </block>
-                </view>
-            </block>
+            <view hidden="{{hideCity}}">City: {{user.city}}</view>
+	        <view hidden="{{hideCamera}}">
+                Cameras:
+                <block wx:for="{{user.equipment.camera}}">
+                    <text> {{item}}</text>
+                </block>
+            </view>
+	        <view hidden="{{hideLens}}">
+                Lens:
+                <block wx:for="{{user.equipment.lens}}">
+                    <text> {{item}}</text>
+                </block>
+            </view>
         </view>
         <!--<view wx:for="{{contacts}}">
             <text class="reply-content">{{item[0]}}: {{item[1]}}</text>

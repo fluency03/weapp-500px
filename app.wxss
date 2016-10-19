@@ -13,6 +13,7 @@
   display: flex;
   align-items: center;
   margin-bottom: 10rpx;
+  margin-left: 10rpx;
 }
 
 .owner-avatar {

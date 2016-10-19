@@ -10,6 +10,8 @@ var GALLERIES = '/galleries';
 
 var CKEY = 'pd67OURWTmXMy6X1E3DL5jmr9aBAZ9VLjZp4jLvz';
 
+// var NONES = ['', null, undefined];
+
 
 function _getPhotos(){
   return HOST_URI + PHOTOS;
@@ -31,10 +33,13 @@ function _showUser(id){
   return HOST_URI + USERS + SHOW_ID + id;
 }
 
-function _getUserPhotos(id){
-  return HOST_URI;
+function _getUser(){
+  return HOST_URI + USERS + SEARCH;
 }
 
+function _isNone(s){
+  return s == '' || s == null || s == undefined;
+}
 
 
 module.exports = {
@@ -43,5 +48,6 @@ module.exports = {
   getPhoto: _getPhoto,
   getSearch: _getSearch,
   showUser: _showUser,
-  getUserPhotos: _getUserPhotos
+  getUser: _getUser,
+  isNone: _isNone
 };
