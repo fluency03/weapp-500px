@@ -1,35 +1,28 @@
-<!--explore.wxml-->
+<!--search.wxml-->
 <loading hidden="{{!loading}}">
     Loading
 </loading>
 
 <view class="container">
-<scroll-view class='section editor' style="height: 750px;" scroll-y="true" bindscrolltolower="loadMore">
-    <view class="search">
-        <input class="searchinput" placeholder="Key words" bindchange="changeTerm" type="text" auto-focus="true"/>
-        <!--<input class="searchinput" placeholder="Tag" bindchange="changeTag" type="text" auto-focus="true"/>-->
-        <icon type="search" size="26" bindtap="search"/>
-    </view>
-    <view class="big-photo-list">
-        <view class="big-photo-item"  wx:for="{{photos}}">
-            <view class="photo-item" index="{{index}}" id="{{item.id}}" catchtap="look">
-                <image class="photo" src="{{item.images[0].url}}"></image>
-            </view>
+    <scroll-view class='section editor' style="height: 750px;" scroll-y="true" bindscrolltolower="loadMore">
+        <view class="search">
+            <input class="searchinput" placeholder="Key words" bindchange="changeTerm" type="text" auto-focus="true"/>
+            <icon type="search" size="26" bindtap="search"/>
         </view>
-    </view>
-
-    <view class="load-more-wrap">
-        <block wx:if="{{hasMore}}">
-            <view class="load-content">
-                <text class="weui-loading"/><text class="loading-text">Loading...</text>
-            </view>
-        </block>
-
-        <block wx:else>
-            <view class="load-content">
-                <text>No more...</text>
-            </view>
-        </block>
-    </view>
-</scroll-view>
+        <view class="photo-list">
+            <block wx:for="{{photos}}">
+                <view class="photo-item" id="{{item.id}}" catchtap="lookPhoto">
+                    <image class="photo" src="{{item.images[0].url}}"></image>
+                </view>
+            </block>
+        </view>
+        <view class="load-more-wrap">
+            <block wx:if="{{hasMore}}">
+                <text class="weui-loading"/><text class="load-content">Loading...</text>
+            </block>
+            <block wx:else>
+                <view class="load-content"><text>No more...</text></view>
+            </block>
+        </view>
+    </scroll-view>
 </view>

@@ -1,6 +1,8 @@
-//app.js
+// app.js
+
 App({
   onLaunch: function () {
+    console.log('start!');
     // var logs = wx.getStorageSync('logs') || []
     // logs.unshift(Date.now())
     // wx.setStorageSync('logs', logs)
@@ -26,4 +28,4 @@ App({
   globalData:{
     userInfo:null
   }
-})
+});

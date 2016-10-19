@@ -5,6 +5,8 @@ var Api = require('../../utils/api.js');
 var WARP_SECOND = 1000 * 60;
 var CACHED_TIME = WARP_SECOND * 2; // sec
 
+var featureMap = {'Editor': 'editors', 'Today': 'fresh_today', 'Week': 'fresh_week', 'Upcoming': 'upcoming'};
+
 Page({
   data: {
     title: 'Explore',
@@ -13,31 +15,30 @@ Page({
     loading: true,
     hasMore: true,
     rpp: 20,
-    actionSheetHidden: true,
-    actionSheetItems: ['Editor', 'Today', 'Week', 'Upcoming'],
-    sheetMap: {'Editor': 'editors', 'Today': 'fresh_today', 'Week': 'fresh_week', 'Upcoming': 'upcoming'}
+    featureOptionHidden: true,
+    featuresOptions: ['Editor', 'Today', 'Week', 'Upcoming']
   },
-  look: function(event) {
+  lookPhoto: function(event) {
     var id = event.currentTarget.id,
       url = '../detail/detail?id=' + id;
     wx.navigateTo({
       url: url
     })
   },
-  actionSheetTap: function(e) {
+  showFeatureOptions: function(e) {
     this.setData({
-      actionSheetHidden: !this.data.actionSheetHidden
+      featureOptionHidden: !this.data.featureOptionHidden
     })
   },
-  actionSheetChange: function(e) {
+  changeFeatures: function(e) {
     this.setData({
-      actionSheetHidden: !this.data.actionSheetHidden
+      featureOptionHidden: !this.data.featureOptionHidden
     })
   },
-  bindItemTap:function(e){
-    console.log(this.data.sheetMap[e.currentTarget.dataset.name]);
+  chooseFeature:function(e){
+    console.log(featureMap[e.currentTarget.dataset.name]);
     this.setData({
-      feature: this.data.sheetMap[e.currentTarget.dataset.name],
+      feature: featureMap[e.currentTarget.dataset.name],
       rpp: 20
     });
     this.initData(this.data.feature);
@@ -115,6 +116,7 @@ Page({
     })
   },
   onLoad: function () {
+    console.log('load explore');
     this.initData(this.data.feature);
   }
 })

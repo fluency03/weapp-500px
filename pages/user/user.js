@@ -1,3 +1,4 @@
+// user.js
 
 var Api = require('../../utils/api.js');
 
@@ -10,7 +11,6 @@ Page({
     user: {},
     photos: [],
     contacts: [],
-    hidden: false,
     loading: true,
     hasMore: true,
     id: '',
@@ -19,8 +19,8 @@ Page({
     hideLens: true,
     hideCity: true
   },
-  look: function(event) {
-    var id = event.currentTarget.id,
+  lookPhoto: function(e) {
+    var id = e.currentTarget.id,
       url = '../detail/detail?id=' + id;
     wx.navigateTo({
       url: url
@@ -60,11 +60,6 @@ Page({
           contacts: arrayC
         });
         that.fetchGallery(id);
-        setTimeout(function() {
-          that.setData({
-            hidden: true
-          })
-        }, 300)
       }
     });
   },
@@ -130,20 +125,13 @@ Page({
 
         that.setData({
           photos: newData,
+          loading: false,
           rpp: that.data.rpp + 20
-        });
-        setTimeout(function() {
-          that.setData({
-            hidden: true
-          })
-        }, 300)
+        })
       }
     });
   },
   onLoad: function(options) {
-    this.setData({
-      hidden: false
-    });
     this.fetchUser(options.id);
   }
 })

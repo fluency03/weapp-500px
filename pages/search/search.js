@@ -1,4 +1,4 @@
-// today.js
+// search.js
 
 var util = require('../../utils/util.js');
 var Api = require('../../utils/api.js');
@@ -14,11 +14,10 @@ Page({
     tag: '',
     loading: true,
     hasMore: true,
-    rpp: 20,
-    actionSheetHidden: true
+    rpp: 20
   },
-  look: function(event) {
-    var id = event.currentTarget.id,
+  lookPhoto: function(e) {
+    var id = e.currentTarget.id,
       url = '../detail/detail?id=' + id;
     wx.navigateTo({
       url: url
@@ -30,12 +29,6 @@ Page({
       rpp: 20
     });
   },
-  // changeTag: function(e) {
-  //   this.setData({
-  //     tag: e.detail.value,
-  //     rpp: 20
-  //   });
-  // },
   search: function(e) {
     this.setData({
       rpp: 20
