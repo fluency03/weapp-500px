@@ -12,7 +12,7 @@ Page({
     id: 0,
     height: 0,
     pages: [],
-    hidden: false,
+    loading: true,
     modalHidden2: true,
     hideCamera: true,
     hideLens: true,
@@ -81,20 +81,13 @@ Page({
       },
       success: function(res) {
         that.setData({
+          loading: false,
           comments: res.data.comments
-        });
-        setTimeout(function() {
-          that.setData({
-            hidden: true
-          })
-        }, 300)
+        })
       }
     })
   },
   onLoad: function(options) {
-    this.setData({
-      hidden: false
-    });
     this.fetchDetail(options.id);
   }
 })

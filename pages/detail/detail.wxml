@@ -1,4 +1,7 @@
 <!--detail.wxml-->
+<loading hidden="{{!loading}}">
+    Loading
+</loading>
 
 <modal class="modal" hidden="{{modalHidden2}}" no-cancel bindconfirm="modalChange2">
         <view hidden="{{hideCamera}}"> <text>Camera: {{photo.camera}}</text> </view>
@@ -43,7 +46,4 @@
             </view>
         </block>
     </view>
-    <loading hidden="{{hidden}}">
-        Loading...
-    </loading>
 </view>
