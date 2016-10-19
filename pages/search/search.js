@@ -11,9 +11,10 @@ Page({
     title: 'Search',
     photos: [],
     term: '',
-    loading: true,
+    loading: false,
     hasMore: true,
     equalOne: false,
+    newSearch: false,
     rpp: 20
   },
   lookPhoto: function(e) {
@@ -25,24 +26,24 @@ Page({
   },
   changeTerm: function(e) {
     this.setData({
-      term: e.detail.value,
-      rpp: 20
+      term: e.detail.value
     });
   },
   search: function(e) {
     this.setData({
+      newSearch: true,
       rpp: 20
     });
     this.initData(this.data.term)
   },
   initData: function(t){
-    var cachedPhotos = wx.getStorageSync(t);
+    var cachedPhotos = wx.getStorageSync('term' + t);
 
     if (!cachedPhotos) {
       this.fetchData();
     } else {
       var nowTs = Date.now();
-      var oldTs = parseInt(wx.getStorageSync('requestTs') || 0);
+      var oldTs = parseInt(wx.getStorageSync('requestSearchTs') || 0);
 
       if (nowTs - oldTs > CACHED_TIME || !oldTs) {
         this.fetchData();
@@ -77,11 +78,15 @@ Page({
         console.log(res);
         var fetchedData = res.data.photos;
 
-        var newData = that.data.photos;
-        newData.push.apply(newData, fetchedData.slice(theRPP - 20, theRPP));
+        if (!that.data.newSearch){
+          var newData = that.data.photos;
+          newData.push.apply(newData, fetchedData.slice(theRPP - 20, theRPP));
+        } else {
+          var newData = fetchedData;
+        }
 
-        wx.setStorageSync(that.data.term, newData);
-        wx.setStorageSync('requestTs', Date.now());
+        wx.setStorageSync('term' + that.data.term, newData);
+        wx.setStorageSync('requestSearchTs', Date.now());
 
         var hasMore = true;
         var newRPP = theRPP + 20;
@@ -101,6 +106,7 @@ Page({
           loading: false,
           hasMore: hasMore,
           equalOne: equalOne,
+          newSearch: false,
           rpp: newRPP
         })
       }
@@ -108,6 +114,6 @@ Page({
   },
   onLoad: function () {
     console.log('load search');
-    this.initData(this.data.term);
+    // this.initData(this.data.term);
   }
 })

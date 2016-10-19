@@ -1,21 +1,3 @@
 .container {
   align-items:flex-start;
 }
-
-.search{
-  width:100%;
-  display:flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-around;
-}
-
-.searchinput{
-  width:500rpx;
-  height: 55rpx;
-  display: flex;
-  flex-direction: column;
-  padding-left:4rpx;
-  border:1rpx solid lightgray;
-  border-radius: 4rpx;
-}

@@ -6,7 +6,7 @@
 <view class="container">
     <scroll-view class='section editor' style="height: 750px;" scroll-y="true" bindscrolltolower="loadMore">
         <view class="search">
-            <input class="searchinput" placeholder="Key words" bindchange="changeTerm" type="text" auto-focus="true"/>
+            <input class="searchinput" placeholder="Search key word" bindchange="changeTerm" type="text" auto-focus="true"/>
             <icon type="search" size="26" bindtap="search"/>
         </view>
         <view class="photo-list">
@@ -16,13 +16,13 @@
                 </view>
             </block>
         </view>
-        <view class="load-more-wrap">
-            <block wx:if="{{hasMore}}">
-                <text class="weui-loading"/><text class="load-content">Loading...</text>
-            </block>
-            <block wx:else>
-                <view class="load-content"><text>No more...</text></view>
-            </block>
-        </view>
+        <!--<view class="load-more-wrap">-->
+            <!--<block wx:if="{{hasMore}}">-->
+                <!--<text class="weui-loading"/><text class="load-content">Loading...</text>-->
+            <!--</block>-->
+            <!--<block wx:else>-->
+                <!--<view class="load-content"><text>No more...</text></view>-->
+            <!--</block>-->
+        <!--</view>-->
     </scroll-view>
 </view>
