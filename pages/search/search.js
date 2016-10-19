@@ -30,12 +30,12 @@ Page({
       rpp: 20
     });
   },
-  changTag: function(e) {
-    this.setData({
-      tag: e.detail.value,
-      rpp: 20
-    });
-  },
+  // changeTag: function(e) {
+  //   this.setData({
+  //     tag: e.detail.value,
+  //     rpp: 20
+  //   });
+  // },
   search: function(e) {
     this.setData({
       rpp: 20
@@ -82,7 +82,7 @@ Page({
       url: Api.getSearch(),
       data: {
         term: this.data.term,
-        tag: this.data.tag,
+        // tag: this.data.tag,
         consumer_key: Api.getConsumerKey(),
         image_size: '3',
         rpp: theRPP

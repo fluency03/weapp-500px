@@ -9,6 +9,8 @@ Page({
     title: 'User',
     user: {},
     contacts: [],
+    cameras: [],
+    lens: [],
     photos: [],
     hidden: false,
     loading: true,

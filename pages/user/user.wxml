@@ -5,12 +5,30 @@
             <image class="owner-avatar" src="{{user.userpic_url}}"></image>
             <view class="topic-tit">{{user.username}}</view>
         </view>
-        <view class="topic-desc">
-            <text>City: {{user.city}}</text>
+        <view class="reply-content">
+            <block wx:if="{{user.city != '' && user.city != null}}">
+                <view> <text>City: {{user.city}}</text> </view>
+            </block>
+	        <block wx:if="{{user.equipment.camera.length != 0}}">
+                <view> 
+                    <text>Cameras: </text>
+                    <block wx:for="{{user.equipment.camera}}">
+                        <text>{{item}}</text>
+                    </block>
+                </view>
+            </block>
+	        <block wx:if="{{user.equipment.lens.length != 0}}">
+                <view> 
+                    <text>Lens: </text>
+                    <block wx:for="{{user.equipment.lens}}">
+                        <text> {{item}}</text>
+                    </block>
+                </view>
+            </block>
         </view>
-        <view wx:for="{{contacts}}">
+        <!--<view wx:for="{{contacts}}">
             <text class="reply-content">{{item[0]}}: {{item[1]}}</text>
-        </view>
+        </view>-->
         <view class="topic-desc">
             <text>{{user.about}}</text>
         </view>

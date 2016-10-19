@@ -11,7 +11,7 @@
 }
 
 .searchinput{
-  width:300rpx;
+  width:500rpx;
   height: 55rpx;
   display: flex;
   flex-direction: column;
@@ -21,9 +21,10 @@
 }
 
 .searchbutton{
-  width:130rpx;
+  width:140rpx;
   height: 60rpx;
-  display: flex;
-  flex-direction: column;
-  padding: 0rpx;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 28rpx;
 }

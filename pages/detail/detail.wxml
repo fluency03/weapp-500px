@@ -1,11 +1,36 @@
 <!--detail.wxml-->
+
+<modal class="modal" hidden="{{modalHidden2}}" no-cancel bindconfirm="modalChange2">
+	<block wx:if="{{photo.camera != '' && photo.camera != null}}">
+        <view> <text>Camera: {{photo.camera}}</text> </view>
+    </block>
+    <block wx:if="{{photo.lens != '' && photo.lens != null}}">
+        <view> <text>Lens: {{photo.lens}}</text> </view>
+    </block>
+    <block wx:if="{{photo.aperture != '' && photo.aperture != null}}">
+        <view> <text>Aperture: {{photo.aperture}}</text> </view>
+    </block>
+    <block wx:if="{{photo.iso != '' && photo.iso != null}}">
+        <view> <text>ISO: {{photo.iso}}</text> </view>
+    </block>
+    <block wx:if="{{photo.rating != '' && photo.rating != null}}">
+        <view> <text>Rate: {{photo.rating}}</text> </view>
+    </block>
+    <block wx:if="{{photo.votes_count != '' && photo.votes_count != null}}">
+        <view> <text>Vote: {{photo.votes_count}}</text> </view>
+    </block>
+    <block wx:if="{{photo.times_viewed != '' && photo.times_viewed != null}}">
+        <view> <text>View: {{photo.times_viewed}}</text> </view>
+    </block>
+</modal>
+
 <view class="container">
     <view class="topic-detail">
         <view class="topic-owner">
             <image class="owner-avatar" src="{{photo.user.userpic_url}}" id="{{photo.user.id}}" bindtap="loadUser"></image>
             <view class="topic-tit">{{photo.user.username}}</view>
         </view>
-        <image style="width: 750rpx; height: {{height}}rpx; background-color: #ffffff;" src="{{photo.images[0].url}}" mode="aspectFit"></image>
+        <image style="width: 750rpx; height: {{height}}rpx; background-color: #ffffff;" src="{{photo.images[0].url}}" mode="aspectFit" bindtap="modalTap2"></image>
         <view class="topic-desc">
             <text>{{photo.description}}</text>
         </view>

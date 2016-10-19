@@ -47,12 +47,14 @@
   width: 700rpx;
   padding-left: 20rpx;
   padding-right: 20rpx;
+  margin-top: 20rpx;
   margin-bottom: 20rpx;
   line-height: 1.4;
   word-wrap: break-word;
   word-break: normal;
   font-size:14px;
   color:#333;
+  /*border-top:1px solid #ddd;*/
 }
 
 .topic-tags {
@@ -68,7 +70,7 @@
 }
 
 .replies {
-  width: 750rpx;
+  width: 730rpx;
   border-top:1px solid #ddd;
 }
 
@@ -107,6 +109,7 @@
   word-wrap: break-word;
   word-break: normal;
   color:#999;
+  margin-bottom: 5rpx;
 }
 
 .big-photo-list{

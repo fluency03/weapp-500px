@@ -12,7 +12,18 @@ Page({
     id: 0,
     height: 0,
     pages: [],
-    hidden: false
+    hidden: false,
+    modalHidden2: true
+  },
+  modalTap2: function(e) {
+    this.setData({
+      modalHidden2: false
+    })
+  },
+  modalChange2: function(e) {
+    this.setData({
+      modalHidden2: true
+    })
   },
   loadUser: function(event) {
     var id = event.currentTarget.id,
