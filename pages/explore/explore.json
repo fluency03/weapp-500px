@@ -1,7 +1,7 @@
 {
-    "backgroundTextStyle":"light"
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "Explore",
-    "navigationBarTextStyle":"black",
-    "enablePullDownRefresh":"true"
+  "backgroundTextStyle":"light",
+  "navigationBarBackgroundColor": "#fff",
+  "navigationBarTitleText": "Explore",
+  "navigationBarTextStyle":"black",
+  "enablePullDownRefresh":"true"
 }
