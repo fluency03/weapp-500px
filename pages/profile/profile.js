@@ -21,12 +21,10 @@ Page({
       url: url
     })
   },
-  changeTerm: function(e) {
+  search: function(e) {
     this.setData({
       term: e.detail.value
     });
-  },
-  search: function(e) {
     this.initData()
   },
   initData: function(){

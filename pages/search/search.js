@@ -24,13 +24,9 @@ Page({
       url: url
     })
   },
-  changeTerm: function(e) {
-    this.setData({
-      term: e.detail.value
-    });
-  },
   search: function(e) {
     this.setData({
+      term: e.detail.value,
       newSearch: true,
       rpp: 20
     });

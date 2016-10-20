@@ -5,9 +5,11 @@
 
 <view class="container">
     <scroll-view class='section editor' style="height: 750px;" scroll-y="true" bindscrolltolower="loadMore">
-        <view class="search">
-            <input class="searchinput" placeholder="Search key word" bindchange="changeTerm" type="text" auto-focus="true"/>
-            <icon type="search" size="26" bindtap="search"/>
+        <view class="search-bar">
+            <view class="search-bar-warper">
+                <icon type="search" size="16"/>
+                <input bindchange="search" placeholder="Keywords"/>
+            </view>
         </view>
         <view class="photo-list">
             <block wx:for="{{photos}}">
